@@ -8,7 +8,8 @@ var port = 8000;
 window.localserver = "http://localhost:" + port;
 
 function loadJasmine() {
-    phantom.injectJs("./bower_components/jasmine/lib/jasmine-core/jasmine.js");
+    phantom.injectJs("./node_modules/jasmine-core/lib/jasmine-core/jasmine.js");
+    phantom.injectJs("./node_modules/jasmine-core/lib/jasmine-core/boot.js");
     phantom.injectJs("./bower_components/jasmine/src/console/ConsoleReporter.js");
 }
 
@@ -70,15 +71,15 @@ function runnerFinishListenerReporter() {
 }
 
 function startJasmine() {
-    var jasmineEnv = jasmine.getEnv();
-    jasmineEnv.addReporter(new jasmine.ConsoleReporter(function(msg) {
-        var stdout = require("system").stdout;
-        stdout.write(msg);
-    }));
-    jasmineEnv.addReporter(runnerFinishListenerReporter());
+    // var jasmineEnv = jasmine.getEnv();
+    // jasmineEnv.addReporter(new jasmine.ConsoleReporter(function(msg) {
+    //     var stdout = require("system").stdout;
+    //     stdout.write(msg);
+    // }));
+    // jasmineEnv.addReporter(runnerFinishListenerReporter());
 
-    jasmineEnv.updateInterval = 1000;
-    jasmineEnv.execute();
+    // jasmineEnv.updateInterval = 1000;
+    // jasmineEnv.execute();
 }
 
 

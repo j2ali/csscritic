@@ -22,7 +22,7 @@ describe("HtmlFileReporter", function () {
 
         finished = false;
 
-        this.addMatchers(imagediff.jasmine);
+        jasmine.addMatchers(imagediffForJasmine2);
 
         csscriticTestHelper.loadImageFromUrl(csscriticTestHelper.getFileUrl(fixtureUrl + "green.png"), function (image) {
             htmlImage = image;

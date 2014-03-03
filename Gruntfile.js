@@ -21,7 +21,7 @@ module.exports = function (grunt) {
                 helpers: [
                     'test/helpers.js',
                     'bower_components/jquery/jquery.js',
-                    'bower_components/jasmine-jquery/lib/jasmine-jquery.js',
+                    'node_modules/jasmine-jquery/lib/jasmine-jquery.js',
                     'test/gruntpath.js'
                 ],
                 fixturesPath: './fixtures/'
@@ -169,6 +169,7 @@ module.exports = function (grunt) {
                         readFixtures: true,
                         rasterizeHTML: true,
                         imagediff: true,
+                        imagediffForJasmine2: true,
                         csscritic: true,
                         ifNotInWebkitIt: true,
                         safeLog: true,
@@ -203,6 +204,7 @@ module.exports = function (grunt) {
                         expect: true,
                         spyOn: true,
                         imagediff: true,
+                        imagediffForJasmine2: true,
                         csscritic: true,
                         safeLog: true,
                         csscriticTestPath: true,

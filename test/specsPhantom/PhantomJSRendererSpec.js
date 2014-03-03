@@ -40,7 +40,7 @@ describe("PhantomJS renderer", function () {
             "RWb0mOQUVbFpvQYZJRVsSk9BhllVWxKj0FGWRWb0mOQUVbFpvQYZJRVsSk9BhllVWxKj0FGWRWb0mOQUVYFAAAAAAAAAAAAAAAAAA" +
             "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC8+QHYzUrJwyGFmgAAAABJRU5ErkJggg==";
 
-        this.addMatchers(imagediff.jasmine);
+        jasmine.addMatchers(imagediffForJasmine2);
     });
 
     afterEach(function () {
