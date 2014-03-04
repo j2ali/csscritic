@@ -9,8 +9,8 @@ window.localserver = "http://localhost:" + port;
 
 function loadJasmine() {
     phantom.injectJs("./node_modules/jasmine-core/lib/jasmine-core/jasmine.js");
-    phantom.injectJs("./node_modules/jasmine-core/lib/jasmine-core/boot.js");
-    phantom.injectJs("./bower_components/jasmine/src/console/ConsoleReporter.js");
+    phantom.injectJs("./node_modules/jasmine-core/lib/console/console.js");
+    phantom.injectJs("./jasmineBootForPhantom.js");
 }
 
 function loadCode() {
@@ -57,32 +57,6 @@ function startWebserver() {
 
 }
 
-function runnerFinishListenerReporter() {
-    return {
-        reportRunnerResults: function (suite) {
-            var results = suite.results(),
-                failed = results.totalCount - results.passedCount;
-
-            setTimeout(function () {
-                phantom.exit(failed);
-            }, 10);
-        }
-    };
-}
-
-function startJasmine() {
-    // var jasmineEnv = jasmine.getEnv();
-    // jasmineEnv.addReporter(new jasmine.ConsoleReporter(function(msg) {
-    //     var stdout = require("system").stdout;
-    //     stdout.write(msg);
-    // }));
-    // jasmineEnv.addReporter(runnerFinishListenerReporter());
-
-    // jasmineEnv.updateInterval = 1000;
-    // jasmineEnv.execute();
-}
-
-
 loadJasmine();
 loadCode();
 
@@ -92,5 +66,6 @@ loadTests();
 
 startWebserver();
 
-startJasmine();
+// Provided by jasmineBootForPhantom.js
+executeJasmine();
 
