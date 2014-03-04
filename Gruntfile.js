@@ -209,7 +209,8 @@ module.exports = function (grunt) {
                         safeLog: true,
                         csscriticTestPath: true,
                         csscriticTestHelper: true,
-                        loadStoragePluginSpecs: true
+                        loadStoragePluginSpecs: true,
+                        executeJasmine: true
                     }
                 },
                 src: [

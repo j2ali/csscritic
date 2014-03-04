@@ -12,8 +12,6 @@ describe("HtmlFileReporter", function () {
         referenceImage = null;
         differenceImageCanvas = window.document.createElement("canvas");
 
-        finished = false;
-
         jasmine.addMatchers(imagediffForJasmine2);
 
         csscriticTestHelper.loadImageFromUrl(csscriticTestHelper.getFileUrl(fixtureUrl + "green.png"), function (image) {

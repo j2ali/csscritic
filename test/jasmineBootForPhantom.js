@@ -130,11 +130,14 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
    * ## Reporters
    * The `HtmlReporter` builds all of the HTML UI for the runner page. This reporter paints the dots, stars, and x's for specs, as well as all spec names and all failures (if any).
    */
+  var system = require('system');
+
   var consoleReporter = new jasmine.ConsoleReporter({
-    print: function (msg) { console.log(msg); },
-    onComplete: function () {
-        setTimeout(function (failed) {
-            phantom.exit(failed);
+    print: function (msg) { system.stdout.write(msg); },
+    showColors: true,
+    onComplete: function (success) {
+        setTimeout(function () {
+            phantom.exit(success ? 0 : 1);
         }, 10);
     }
   });
